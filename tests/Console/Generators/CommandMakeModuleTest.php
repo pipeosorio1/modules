@@ -1,9 +1,9 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
 use Spatie\Snapshots\MatchesSnapshots;
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 
 class CommandMakeModuleTest extends BaseTestCase
 {
@@ -47,16 +47,16 @@ class CommandMakeModuleTest extends BaseTestCase
 
         $this->artisan('make:module', ['slug' => 'custom', '--quick' => 'quick']);
 
-        $this->assertDirectoryExists(module_path('custom').'/config');
-        $this->assertDirectoryExists(module_path('custom').'/src/Database/Factories');
-        $this->assertDirectoryExists(module_path('custom').'/src/Database/Migrations');
-        $this->assertDirectoryExists(module_path('custom').'/src/Database/Seeds');
-        $this->assertDirectoryExists(module_path('custom').'/src/Http/Controllers');
-        $this->assertDirectoryExists(module_path('custom').'/src/Http/Middleware');
-        $this->assertDirectoryExists(module_path('custom').'/src/Providers');
-        $this->assertDirectoryExists(module_path('custom').'/resources/lang');
-        $this->assertDirectoryExists(module_path('custom').'/resources/views');
-        $this->assertDirectoryExists(module_path('custom').'/routes');
+        $this->assertDirectoryExists(module_path('custom') . '/config');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Database/Factories');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Database/Migrations');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Database/Seeds');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Http/Controllers');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Http/Middleware');
+        $this->assertDirectoryExists(module_path('custom') . '/src/Providers');
+        $this->assertDirectoryExists(module_path('custom') . '/resources/lang');
+        $this->assertDirectoryExists(module_path('custom') . '/resources/views');
+        $this->assertDirectoryExists(module_path('custom') . '/routes');
     }
 
     public function tearDown(): void

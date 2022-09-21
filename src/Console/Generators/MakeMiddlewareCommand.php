@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
-use Caffeinated\Modules\Console\GeneratorCommand;
+use Pipeosorio1\Modules\Console\GeneratorCommand;
 
 class MakeMiddlewareCommand extends GeneratorCommand
 {
@@ -37,7 +37,7 @@ class MakeMiddlewareCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/middleware.stub';
+        return __DIR__ . '/stubs/middleware.stub';
     }
 
     /**

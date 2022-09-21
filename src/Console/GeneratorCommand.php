@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Console;
+namespace Pipeosorio1\Modules\Console;
 
 use Illuminate\Console\GeneratorCommand as LaravelGeneratorCommand;
 use Illuminate\Support\Str;
@@ -19,8 +19,7 @@ abstract class GeneratorCommand extends LaravelGeneratorCommand
     {
         try {
             $location = $this->option('location') ?: config('modules.default_location');
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $location = config('modules.default_location');
         }
 
@@ -33,7 +32,7 @@ abstract class GeneratorCommand extends LaravelGeneratorCommand
         $name = str_replace('/', '\\', $name);
 
         return $this->qualifyClass(
-            $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name
+            $this->getDefaultNamespace(trim($rootNamespace, '\\')) . '\\' . $name
         );
     }
 
@@ -48,8 +47,7 @@ abstract class GeneratorCommand extends LaravelGeneratorCommand
     {
         try {
             $location = $this->option('location') ?: config('modules.default_location');
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $location = config('modules.default_location');
         }
 

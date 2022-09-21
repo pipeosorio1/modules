@@ -1,13 +1,13 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Support\Arr;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use Caffeinated\Modules\RepositoryManager;
+use Pipeosorio1\Modules\RepositoryManager;
 use Illuminate\Database\Migrations\Migrator;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Repositories\Repository;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -68,12 +68,12 @@ class ModuleMigrateCommand extends Command
     }
 
     /**
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      * @return mixed|void
      */
     protected function migrate(Repository $repository)
     {
-        if (! empty($this->argument('slug'))) {
+        if (!empty($this->argument('slug'))) {
             $module = $repository->where('slug', $this->argument('slug'));
 
             if ($repository->isEnabled($module['slug'])) {
@@ -112,7 +112,7 @@ class ModuleMigrateCommand extends Command
 
             $this->migrator->setOutput($this->output)->run($path, ['pretend' => $pretend, 'step' => $step]);
 
-            event($slug.'.module.migrated', [$module, $this->option()]);
+            event($slug . '.module.migrated', [$module, $this->option()]);
 
             // Finally, if the "seed" option has been given, we will re-run the database
             // seed task to re-populate the database, which is convenient when adding

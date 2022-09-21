@@ -1,9 +1,9 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Repositories\Repository;
 
 class ModuleListCommand extends Command
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakeMiddlewareTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakeMiddlewareTest extends BaseTestCase
     {
         $this->artisan('make:module:middleware', ['slug' => 'middleware', 'name' => 'DefaultMiddleware']);
 
-        $file = $this->finder->get(module_path('middleware').'/Http/Middleware/DefaultMiddleware.php');
+        $file = $this->finder->get(module_path('middleware') . '/Http/Middleware/DefaultMiddleware.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -37,7 +37,7 @@ class CommandMakeMiddlewareTest extends BaseTestCase
 
         $this->artisan('make:module:middleware', ['slug' => 'middleware', 'name' => 'CustomMiddleware']);
 
-        $file = $this->finder->get(module_path('middleware').'/Http/Middleware/CustomMiddleware.php');
+        $file = $this->finder->get(module_path('middleware') . '/Http/Middleware/CustomMiddleware.php');
 
         $this->assertMatchesSnapshot($file);
     }

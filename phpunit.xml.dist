@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Caffeinated Modules Test Suite">
+        <testsuite name="Pipeosorio1 Modules Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

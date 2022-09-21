@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakeTestTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakeTestTest extends BaseTestCase
     {
         $this->artisan('make:module:test', ['slug' => 'test', 'name' => 'DefaultTest']);
 
-        $file = $this->finder->get(module_path('test').'/Tests/DefaultTest.php');
+        $file = $this->finder->get(module_path('test') . '/Tests/DefaultTest.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -37,7 +37,7 @@ class CommandMakeTestTest extends BaseTestCase
 
         $this->artisan('make:module:test', ['slug' => 'test', 'name' => 'CustomTest']);
 
-        $file = $this->finder->get(module_path('test').'/Tests/CustomTest.php');
+        $file = $this->finder->get(module_path('test') . '/Tests/CustomTest.php');
 
         $this->assertMatchesSnapshot($file);
     }

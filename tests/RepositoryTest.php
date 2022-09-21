@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Tests;
+namespace Pipeosorio1\Modules\Tests;
 
 use Illuminate\Support\Collection;
 
@@ -9,7 +9,7 @@ class RepositoryTest extends BaseTestCase
     protected $finder;
 
     /**
-     * @var \Caffeinated\Modules\Repositories\Repository
+     * @var \Pipeosorio1\Modules\Repositories\Repository
      */
     protected $repository;
 
@@ -124,7 +124,7 @@ class RepositoryTest extends BaseTestCase
         // Quick and fast way to simulate legacy module folder structure
         // https://github.com/caffeinated/modules/pull/224
         rename(realpath(module_path('barbiz')), realpath(module_path()) . '/BarBiz');
-        
+
         file_put_contents(realpath(module_path()) . '/BarBiz/module.json', json_encode(array(
             'name' => 'BarBiz', 'slug' => 'BarBiz', 'version' => '1.0', 'description' => '',
         ), JSON_PRETTY_PRINT));

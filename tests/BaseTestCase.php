@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Tests;
+namespace Pipeosorio1\Modules\Tests;
 
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -29,7 +29,7 @@ abstract class BaseTestCase extends OrchestraTestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Caffeinated\Modules\ModulesServiceProvider::class
+            \Pipeosorio1\Modules\ModulesServiceProvider::class
         ];
     }
 
@@ -40,7 +40,7 @@ abstract class BaseTestCase extends OrchestraTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Module' => \Caffeinated\Modules\Facades\Module::class
+            'Module' => \Pipeosorio1\Modules\Facades\Module::class
         ];
     }
 
@@ -56,7 +56,7 @@ abstract class BaseTestCase extends OrchestraTestCase
             'prefix' => '',
         ));
 
-        $app['config']->set('view.paths', [__DIR__.'/resources/views']);
+        $app['config']->set('view.paths', [__DIR__ . '/resources/views']);
 
         $app['config']->set('modules.locations', [
             'app' => [

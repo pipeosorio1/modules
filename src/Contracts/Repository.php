@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Contracts;
+namespace Pipeosorio1\Modules\Contracts;
 
 interface Repository
 {
@@ -148,7 +148,7 @@ interface Repository
      * @return bool
      */
     public function disable($slug);
-    
+
     /**
      * Get all modules by specified location
      * 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
-use Caffeinated\Modules\Console\GeneratorCommand;
+use Pipeosorio1\Modules\Console\GeneratorCommand;
 
 class MakeSeederCommand extends GeneratorCommand
 {
@@ -37,7 +37,7 @@ class MakeSeederCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/seeder.stub';
+        return __DIR__ . '/stubs/seeder.stub';
     }
 
     /**
@@ -49,7 +49,7 @@ class MakeSeederCommand extends GeneratorCommand
      */
     protected function getPath($name)
     {
-        return module_path($this->argument('slug'), 'Database/Seeds/'.$name.'.php', $this->option('location'));
+        return module_path($this->argument('slug'), 'Database/Seeds/' . $name . '.php', $this->option('location'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -36,7 +36,7 @@ class ModuleEnableCommand extends Command
 
             $module = modules($this->option('location'))->where('slug', $slug);
 
-            event($slug.'.module.enabled', [$module, null]);
+            event($slug . '.module.enabled', [$module, null]);
 
             $this->info('Module was enabled successfully.');
         } else {

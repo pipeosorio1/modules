@@ -1,11 +1,11 @@
 <?php
 
-namespace Caffeinated\Modules;
+namespace Pipeosorio1\Modules;
 
 use Exception;
 use Illuminate\Foundation\Application;
-use Caffeinated\Modules\Repositories\Repository;
-use Caffeinated\Modules\Exceptions\ModuleNotFoundException;
+use Pipeosorio1\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Exceptions\ModuleNotFoundException;
 
 class RepositoryManager
 {
@@ -96,7 +96,7 @@ class RepositoryManager
     }
 
     /**
-     * @return \Caffeinated\Modules\Repositories\Repository[]
+     * @return \Pipeosorio1\Modules\Repositories\Repository[]
      */
     public function repositories()
     {
@@ -105,7 +105,7 @@ class RepositoryManager
 
     /**
      * @param string $location
-     * @return \Caffeinated\Modules\Repositories\Repository
+     * @return \Pipeosorio1\Modules\Repositories\Repository
      * @throws \Exception
      */
     protected function repository($location = null)
@@ -113,7 +113,7 @@ class RepositoryManager
         $location = $location ?: config('modules.default_location');
         $driverClass = $this->repositoryClass($location);
 
-        if (! $driverClass) {
+        if (!$driverClass) {
             throw new Exception("[$location] not found. Check your module locations configuration.");
         }
 

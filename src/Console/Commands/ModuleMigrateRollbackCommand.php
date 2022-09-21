@@ -1,13 +1,13 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use Caffeinated\Modules\RepositoryManager;
+use Pipeosorio1\Modules\RepositoryManager;
 use Illuminate\Database\Migrations\Migrator;
-use Caffeinated\Modules\Traits\MigrationTrait;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Traits\MigrationTrait;
+use Pipeosorio1\Modules\Repositories\Repository;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -67,19 +67,20 @@ class ModuleMigrateRollbackCommand extends Command
         }
 
         $this->migrator->setConnection($this->option('database'));
-        
+
         $repository = modules()->location($this->option('location'));
         $paths      = $this->getMigrationPaths($repository);
 
         $this->migrator->setOutput($this->output)->rollback(
-            $paths, ['pretend' => $this->option('pretend'), 'step' => (int)$this->option('step')]
+            $paths,
+            ['pretend' => $this->option('pretend'), 'step' => (int)$this->option('step')]
         );
     }
 
     /**
      * Get all of the migration paths.
      *
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return array
      */

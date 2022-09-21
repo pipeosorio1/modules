@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -37,7 +37,7 @@ class ModuleDisableCommand extends Command
 
             $module = $repository->where('slug', $slug);
 
-            event($slug.'.module.disabled', [$module, null]);
+            event($slug . '.module.disabled', [$module, null]);
 
             $this->info('Module was disabled successfully.');
         } else {

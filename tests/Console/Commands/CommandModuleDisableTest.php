@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Commands;
+namespace Pipeosorio1\Modules\Tests\Commands\Commands;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 
 class CommandModuleDisableTest extends BaseTestCase
 {

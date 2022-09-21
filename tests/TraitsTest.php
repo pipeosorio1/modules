@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Tests;
+namespace Pipeosorio1\Modules\Tests;
 
 class TraitsTest extends BaseTestCase
 {
@@ -27,7 +27,7 @@ class TraitsTest extends BaseTestCase
 
 class DummyModelWithTraits
 {
-    use \Caffeinated\Modules\Traits\MigrationTrait;
+    use \Pipeosorio1\Modules\Traits\MigrationTrait;
 }
 
 class DummyModelWithoutTraits

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Support;
+namespace Pipeosorio1\Modules\Support;
 
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
@@ -48,7 +48,7 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     protected function loadConfigsFrom($path)
     {
-        if (! $this->app->configurationIsCached()) {
+        if (!$this->app->configurationIsCached()) {
             $files = $this->getConfigurationFiles($path);
 
             foreach ($files as $key => $path) {
@@ -75,14 +75,15 @@ class ServiceProvider extends IlluminateServiceProvider
      * @param  string  $path
      * @return array
      */
-    private function getConfigurationFiles($path) {
+    private function getConfigurationFiles($path)
+    {
         $files      = [];
         $configPath = realpath($path);
 
         foreach (Finder::create()->files()->name('*.php')->in($configPath) as $file) {
             $directory = $this->getNestedDirectory($file, $configPath);
 
-            $files[$directory.basename($file->getRealPath(), '.php')] = $file->getRealPath();
+            $files[$directory . basename($file->getRealPath(), '.php')] = $file->getRealPath();
         }
 
         ksort($files, SORT_NATURAL);
@@ -102,9 +103,9 @@ class ServiceProvider extends IlluminateServiceProvider
         $directory = $file->getPath();
 
         if ($nested = trim(str_replace($configPath, '', $directory), DIRECTORY_SEPARATOR)) {
-            $nested = str_replace(DIRECTORY_SEPARATOR, '.', $nested).'.';
+            $nested = str_replace(DIRECTORY_SEPARATOR, '.', $nested) . '.';
         }
-        
+
         return $nested;
     }
 }

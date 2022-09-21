@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Providers;
+namespace Pipeosorio1\Modules\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,8 +20,8 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $default = config('modules.default_driver');
-        $driver  = config('modules.drivers.'.$default);
+        $driver  = config('modules.drivers.' . $default);
 
-        $this->app->bind('Caffeinated\Modules\Contracts\Repository', $driver);
+        $this->app->bind('Pipeosorio1\Modules\Contracts\Repository', $driver);
     }
 }

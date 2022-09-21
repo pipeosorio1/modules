@@ -2,7 +2,7 @@
 
 namespace DummyNamespace\Providers;
 
-use Caffeinated\Modules\Support\ServiceProvider;
+use Pipeosorio1\Modules\Support\ServiceProvider;
 
 class DummyProvider extends ServiceProvider
 {
@@ -16,7 +16,7 @@ class DummyProvider extends ServiceProvider
         $this->loadTranslationsFrom(module_path('DummySlug', 'ResourcesLangMapping', 'DummyLocation'), 'DummySlug');
         $this->loadViewsFrom(module_path('DummySlug', 'ResourcesViewsMapping', 'DummyLocation'), 'DummySlug');
         $this->loadMigrationsFrom(module_path('DummySlug', 'DatabaseMigrationsMapping', 'DummyLocation'));
-        if(!$this->app->configurationIsCached()) {
+        if (!$this->app->configurationIsCached()) {
             $this->loadConfigsFrom(module_path('DummySlug', 'ConfigMapping', 'DummyLocation'));
         }
         $this->loadFactoriesFrom(module_path('DummySlug', 'DatabaseFactoriesMapping', 'DummyLocation'));

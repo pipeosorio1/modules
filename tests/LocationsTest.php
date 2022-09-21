@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Tests;
+namespace Pipeosorio1\Modules\Tests;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 class LocationsTest extends BaseTestCase
 {
     /**
-     * @var \Caffeinated\Modules\Repositories\Repository
+     * @var \Pipeosorio1\Modules\Repositories\Repository
      */
     protected $repository;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakeSeederTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakeSeederTest extends BaseTestCase
     {
         $this->artisan('make:module:seeder', ['slug' => 'seeder', 'name' => 'DefaultSeeder']);
 
-        $file = $this->finder->get(module_path('seeder').'/Database/Seeds/DefaultSeeder.php');
+        $file = $this->finder->get(module_path('seeder') . '/Database/Seeds/DefaultSeeder.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -37,7 +37,7 @@ class CommandMakeSeederTest extends BaseTestCase
 
         $this->artisan('make:module:seeder', ['slug' => 'seeder', 'name' => 'CustomSeeder']);
 
-        $file = $this->finder->get(module_path('seeder').'/Database/Seeds/CustomSeeder.php');
+        $file = $this->finder->get(module_path('seeder') . '/Database/Seeds/CustomSeeder.php');
 
         $this->assertMatchesSnapshot($file);
     }

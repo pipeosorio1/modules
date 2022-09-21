@@ -1,13 +1,13 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Console\ConfirmableTrait;
-use Caffeinated\Modules\RepositoryManager;
+use Pipeosorio1\Modules\RepositoryManager;
 use Illuminate\Database\Migrations\Migrator;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Repositories\Repository;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -83,7 +83,7 @@ class ModuleMigrateResetCommand extends Command
      * migrated up as. This ensures the database is properly reversed
      * without conflict.
      *
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return mixed
      */
@@ -102,7 +102,7 @@ class ModuleMigrateResetCommand extends Command
             $this->migrator->requireFiles($files);
 
             foreach ($migrations as $migration) {
-                if (! array_key_exists($migration, $files)) {
+                if (!array_key_exists($migration, $files)) {
                     continue;
                 }
 
@@ -127,23 +127,24 @@ class ModuleMigrateResetCommand extends Command
 
         $this->migrator->getRepository()->delete($migration);
 
-        $this->info("Rolledback: ".$file);
+        $this->info("Rolledback: " . $file);
     }
 
     /**
      * Generate a list of all migration paths, given the arguments/operations supplied.
      *
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return array
      */
-    protected function getMigrationPaths(Repository $repository) {
+    protected function getMigrationPaths(Repository $repository)
+    {
         $migrationPaths = [];
 
         foreach ($this->getSlugsToReset($repository) as $slug) {
             $migrationPaths[] = $this->getMigrationPath($slug, $repository);
 
-            event($slug.'.module.reset', [$this->module, $this->option()]);
+            event($slug . '.module.reset', [$this->module, $this->option()]);
         }
 
         return $migrationPaths;
@@ -152,7 +153,7 @@ class ModuleMigrateResetCommand extends Command
     /**
      * Using the arguments, generate a list of slugs to reset the migrations for.
      *
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return \Illuminate\Support\Collection
      */
@@ -174,7 +175,7 @@ class ModuleMigrateResetCommand extends Command
      *
      * We will accept a slug as long as it is not empty and is enalbed (or force is passed).
      *
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return bool
      */
@@ -202,32 +203,32 @@ class ModuleMigrateResetCommand extends Command
      *
      * @return array
      */
-//    protected function getParameters($slug)
-//    {
-//        $params = [];
-//
-//        $params['--path'] = $this->getMigrationPath($slug);
-//
-//        if ($option = $this->option('database')) {
-//            $params['--database'] = $option;
-//        }
-//
-//        if ($option = $this->option('pretend')) {
-//            $params['--pretend'] = $option;
-//        }
-//
-//        if ($option = $this->option('seed')) {
-//            $params['--seed'] = $option;
-//        }
-//
-//        return $params;
-//    }
+    //    protected function getParameters($slug)
+    //    {
+    //        $params = [];
+    //
+    //        $params['--path'] = $this->getMigrationPath($slug);
+    //
+    //        if ($option = $this->option('database')) {
+    //            $params['--database'] = $option;
+    //        }
+    //
+    //        if ($option = $this->option('pretend')) {
+    //            $params['--pretend'] = $option;
+    //        }
+    //
+    //        if ($option = $this->option('seed')) {
+    //            $params['--seed'] = $option;
+    //        }
+    //
+    //        return $params;
+    //    }
 
     /**
      * Get migrations path.
      *
      * @param string $slug
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return string
      */

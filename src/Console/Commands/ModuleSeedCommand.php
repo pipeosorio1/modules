@@ -1,10 +1,10 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
-use Caffeinated\Modules\RepositoryManager;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\RepositoryManager;
+use Pipeosorio1\Modules\Repositories\Repository;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -53,24 +53,21 @@ class ModuleSeedCommand extends Command
         $slug = $this->argument('slug');
 
         if ($slug) {
-            if (! $repository->exists($slug)) {
+            if (!$repository->exists($slug)) {
                 return $this->error('Module does not exist.');
             }
 
             if ($repository->isEnabled($slug)) {
                 $this->seed($slug, $repository);
-            }
-            elseif ($this->option('force')) {
+            } elseif ($this->option('force')) {
                 $this->seed($slug, $repository);
             }
 
             return;
-        }
-        else {
+        } else {
             if ($this->option('force')) {
                 $modules = $repository->all();
-            }
-            else {
+            } else {
                 $modules = $repository->enabled();
             }
 
@@ -84,7 +81,7 @@ class ModuleSeedCommand extends Command
      * Seed the specific module.
      *
      * @param string $slug
-     * @param \Caffeinated\Modules\Repositories\Repository $repository
+     * @param \Pipeosorio1\Modules\Repositories\Repository $repository
      *
      * @return void
      */
@@ -93,8 +90,8 @@ class ModuleSeedCommand extends Command
         $module        = $repository->where('slug', $slug);
         $params        = [];
         $namespacePath = $repository->getNamespace();
-        $rootSeeder    = $module['basename'].'DatabaseSeeder';
-        $fullPath      = $namespacePath.'\\'.$module['basename'].'\Database\Seeds\\'.$rootSeeder;
+        $rootSeeder    = $module['basename'] . 'DatabaseSeeder';
+        $fullPath      = $namespacePath . '\\' . $module['basename'] . '\Database\Seeds\\' . $rootSeeder;
 
         if (class_exists($fullPath)) {
             if ($this->option('class')) {
@@ -113,7 +110,7 @@ class ModuleSeedCommand extends Command
 
             $this->call('db:seed', $params);
 
-            event($slug.'.module.seeded', [$module, $this->option()]);
+            event($slug . '.module.seeded', [$module, $this->option()]);
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Support;
+namespace Pipeosorio1\Modules\Support;
 
 use Illuminate\Support\Facades\Gate as IlluminateGate;
 

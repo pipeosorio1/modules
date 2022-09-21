@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Database\Migrations;
+namespace Pipeosorio1\Modules\Database\Migrations;
 
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
 use Illuminate\Database\Migrations\MigrationRepositoryInterface;
@@ -23,11 +23,12 @@ class Migrator extends BaseMigrator
      * @param  \Illuminate\Database\ConnectionResolverInterface              $resolver
      * @param  \Illuminate\Filesystem\Filesystem                             $files
      */
-    public function __construct($table,
-                                MigrationRepositoryInterface $repository,
-                                Resolver $resolver,
-                                Filesystem $files)
-    {
+    public function __construct(
+        $table,
+        MigrationRepositoryInterface $repository,
+        Resolver $resolver,
+        Filesystem $files
+    ) {
         $this->table = $table;
 
         parent::__construct($repository, $resolver, $files);
@@ -84,7 +85,8 @@ class Migrator extends BaseMigrator
 
                     $this->runDown(
                         $files[$migration->migration],
-                        $migration, Arr::get($options, 'pretend', false)
+                        $migration,
+                        Arr::get($options, 'pretend', false)
                     );
                 }
             }

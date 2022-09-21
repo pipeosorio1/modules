@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakeRequestTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakeRequestTest extends BaseTestCase
     {
         $this->artisan('make:module:request', ['slug' => 'request', 'name' => 'DefaultRequest']);
 
-        $file = $this->finder->get(module_path('request').'/Http/Requests/DefaultRequest.php');
+        $file = $this->finder->get(module_path('request') . '/Http/Requests/DefaultRequest.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -37,7 +37,7 @@ class CommandMakeRequestTest extends BaseTestCase
 
         $this->artisan('make:module:request', ['slug' => 'request', 'name' => 'CustomRequest']);
 
-        $file = $this->finder->get(module_path('request').'/Http/Requests/CustomRequest.php');
+        $file = $this->finder->get(module_path('request') . '/Http/Requests/CustomRequest.php');
 
         $this->assertMatchesSnapshot($file);
     }

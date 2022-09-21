@@ -21,7 +21,7 @@ composer require caffeinated/modules
 To publish the config file, run the following:
 
 ```
-php artisan vendor:publish --provider="Caffeinated\Modules\ModulesServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Pipeosorio1\Modules\ModulesServiceProvider" --tag="config"
 ```
 
 ## Changelog

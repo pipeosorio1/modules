@@ -1,10 +1,10 @@
 <?php
 
-namespace Caffeinated\Modules\Repositories;
+namespace Pipeosorio1\Modules\Repositories;
 
 use Exception;
 use Illuminate\Support\Str;
-use Caffeinated\Modules\Contracts\Repository as RepositoryContract;
+use Pipeosorio1\Modules\Contracts\Repository as RepositoryContract;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 
@@ -75,7 +75,7 @@ abstract class Repository implements RepositoryContract
      */
     public function getManifest($slug)
     {
-        if (! is_null($slug)) {
+        if (!is_null($slug)) {
             $path     = $this->getManifestPath($slug);
             $contents = $this->files->get($path);
             $validate = @json_decode($contents, true);
@@ -86,7 +86,7 @@ abstract class Repository implements RepositoryContract
                 return $collection;
             }
 
-            throw new Exception('['.$slug.'] Your JSON manifest file was not properly formatted. Check for formatting issues and try again.');
+            throw new Exception('[' . $slug . '] Your JSON manifest file was not properly formatted. Check for formatting issues and try again.');
         }
     }
 
@@ -125,11 +125,11 @@ abstract class Repository implements RepositoryContract
     {
         $module = Str::studly($slug);
 
-        if (\File::exists($this->getPath()."/{$module}/")) {
-            return $this->getPath()."/{$module}/";
+        if (\File::exists($this->getPath() . "/{$module}/")) {
+            return $this->getPath() . "/{$module}/";
         }
 
-        return $this->getPath()."/{$slug}/";
+        return $this->getPath() . "/{$slug}/";
     }
 
     /**
@@ -143,7 +143,7 @@ abstract class Repository implements RepositoryContract
     {
         $filename = config("modules.locations.$this->location.manifest") ?: 'module.json';
 
-        return $this->getModulePath($slug).$filename;
+        return $this->getModulePath($slug) . $filename;
     }
 
     /**

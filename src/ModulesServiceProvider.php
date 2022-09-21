@@ -1,12 +1,12 @@
 <?php
 
-namespace Caffeinated\Modules;
+namespace Pipeosorio1\Modules;
 
 use Illuminate\Support\ServiceProvider;
-use Caffeinated\Modules\Contracts\Repository;
-use Caffeinated\Modules\Providers\BladeServiceProvider;
-use Caffeinated\Modules\Providers\ConsoleServiceProvider;
-use Caffeinated\Modules\Providers\GeneratorServiceProvider;
+use Pipeosorio1\Modules\Contracts\Repository;
+use Pipeosorio1\Modules\Providers\BladeServiceProvider;
+use Pipeosorio1\Modules\Providers\ConsoleServiceProvider;
+use Pipeosorio1\Modules\Providers\GeneratorServiceProvider;
 
 class ModulesServiceProvider extends ServiceProvider
 {
@@ -14,14 +14,14 @@ class ModulesServiceProvider extends ServiceProvider
      * @var bool Indicates if loading of the provider is deferred.
      */
     protected $defer = false;
-    
+
     /**
      * Bootstrap the provided services.
      */
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/modules.php' => config_path('modules.php'),
+            __DIR__ . '/../config/modules.php' => config_path('modules.php'),
         ], 'config');
 
         $this->app['modules']->register();
@@ -33,7 +33,8 @@ class ModulesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/modules.php', 'modules'
+            __DIR__ . '/../config/modules.php',
+            'modules'
         );
 
         $this->app->register(ConsoleServiceProvider::class);

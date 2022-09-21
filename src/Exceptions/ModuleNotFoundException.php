@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Exceptions;
+namespace Pipeosorio1\Modules\Exceptions;
 
 class ModuleNotFoundException extends \Exception
 {

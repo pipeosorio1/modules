@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Tests;
+namespace Pipeosorio1\Modules\Tests;
 
 class HelpersTest extends BaseTestCase
 {
@@ -18,22 +18,22 @@ class HelpersTest extends BaseTestCase
     /** @test */
     public function it_can_get_module_path()
     {
-        $this->assertSame(base_path().'/modules/Helper', module_path('helper'));
+        $this->assertSame(base_path() . '/modules/Helper', module_path('helper'));
     }
 
     /** @test */
     public function it_can_get_module_path_files()
     {
-        $this->assertSame(base_path().'/modules/Helper/Database', module_path('helper', 'Database'));
-        $this->assertSame(base_path().'/modules/Helper/Database/Factories', module_path('helper', 'Database/Factories'));
-        $this->assertSame(base_path().'/modules/Helper/Database/Migrations', module_path('helper', 'Database/Migrations'));
-        $this->assertSame(base_path().'/modules/Helper/Database/Seeds', module_path('helper', 'Database/Seeds'));
+        $this->assertSame(base_path() . '/modules/Helper/Database', module_path('helper', 'Database'));
+        $this->assertSame(base_path() . '/modules/Helper/Database/Factories', module_path('helper', 'Database/Factories'));
+        $this->assertSame(base_path() . '/modules/Helper/Database/Migrations', module_path('helper', 'Database/Migrations'));
+        $this->assertSame(base_path() . '/modules/Helper/Database/Seeds', module_path('helper', 'Database/Seeds'));
 
-        $this->assertSame(base_path().'/modules/Helper/Providers/ModuleServiceProvider.php', module_path('helper', 'Providers/ModuleServiceProvider.php'));
-        $this->assertSame(base_path().'/modules/Helper/Providers/RouteServiceProvider.php', module_path('helper', 'Providers/RouteServiceProvider.php'));
+        $this->assertSame(base_path() . '/modules/Helper/Providers/ModuleServiceProvider.php', module_path('helper', 'Providers/ModuleServiceProvider.php'));
+        $this->assertSame(base_path() . '/modules/Helper/Providers/RouteServiceProvider.php', module_path('helper', 'Providers/RouteServiceProvider.php'));
 
-        $this->assertSame(base_path().'/modules/Helper/Routes/api.php', module_path('helper', 'Routes/api.php'));
-        $this->assertSame(base_path().'/modules/Helper/Routes/web.php', module_path('helper', 'Routes/web.php'));
+        $this->assertSame(base_path() . '/modules/Helper/Routes/api.php', module_path('helper', 'Routes/api.php'));
+        $this->assertSame(base_path() . '/modules/Helper/Routes/web.php', module_path('helper', 'Routes/web.php'));
     }
 
     /** @test */

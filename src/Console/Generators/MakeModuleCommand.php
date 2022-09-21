@@ -1,11 +1,11 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Caffeinated\Modules\RepositoryManager;
+use Pipeosorio1\Modules\RepositoryManager;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class MakeModuleCommand extends Command
@@ -25,7 +25,7 @@ class MakeModuleCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a new Caffeinated module and bootstrap it';
+    protected $description = 'Create a new Pipeosorio1 module and bootstrap it';
 
     /**
      * The modules instance.
@@ -80,7 +80,7 @@ class MakeModuleCommand extends Command
 
         if ($this->option('quick')) {
             $this->container['basename']  = Str::studly($this->container['slug']);
-            $this->container['namespace'] = config("modules.locations.{$this->container['location']}.namespace").$this->container['basename'];
+            $this->container['namespace'] = config("modules.locations.{$this->container['location']}.namespace") . $this->container['basename'];
 
             return $this->generate();
         }
@@ -205,20 +205,20 @@ class MakeModuleCommand extends Command
             }
 
             $filePath = $directory . '/' . $subPath;
-            
+
             // if the file is module.json, replace it with the custom manifest file name
             if ($file->getFilename() === 'module.json' && $manifest) {
                 $filePath = str_replace('module.json', $manifest, $filePath);
             }
-            
+
             // if the file is ModuleServiceProvider.php, replace it with the custom provider file name
             if ($file->getFilename() === 'ModuleServiceProvider.php') {
                 $filePath = str_replace('ModuleServiceProvider', $provider, $filePath);
             }
-            
+
             $dir = dirname($filePath);
-            
-            if (! $this->files->isDirectory($dir)) {
+
+            if (!$this->files->isDirectory($dir)) {
                 $this->files->makeDirectory($dir, 0755, true);
             }
 
@@ -230,7 +230,7 @@ class MakeModuleCommand extends Command
     {
         $location = $this->container['location'];
         $mapping  = config("modules.locations.$location.mapping");
-        
+
         $find = [
             'DummyBasename',
             'DummyNamespace',
@@ -240,7 +240,7 @@ class MakeModuleCommand extends Command
             'DummyDescription',
             'DummyLocation',
             'DummyProvider',
-            
+
             'ConfigMapping',
             'DatabaseFactoriesMapping',
             'DatabaseMigrationsMapping',
@@ -252,7 +252,7 @@ class MakeModuleCommand extends Command
             'ResourcesViewsMapping',
             'RoutesMapping',
         ];
-        
+
         $replace = [
             $this->container['basename'],
             $this->container['namespace'],

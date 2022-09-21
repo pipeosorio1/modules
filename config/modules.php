@@ -35,7 +35,7 @@ return [
             'provider'  => 'ModuleServiceProvider',
             'manifest'  => 'module.json',
             'mapping'   => [
-                
+
                 // Here you may configure the class mapping, effectively
                 // customizing your generated default module structure.
 
@@ -78,6 +78,6 @@ return [
      */
 
     'drivers' => [
-        'local' => 'Caffeinated\Modules\Repositories\LocalRepository',
+        'local' => 'Pipeosorio1\Modules\Repositories\LocalRepository',
     ],
 ];

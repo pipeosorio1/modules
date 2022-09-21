@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakeControllerTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakeControllerTest extends BaseTestCase
     {
         $this->artisan('make:module:controller', ['slug' => 'controller', 'name' => 'DefaultController']);
 
-        $file = $this->finder->get(module_path('controller').'/Http/Controllers/DefaultController.php');
+        $file = $this->finder->get(module_path('controller') . '/Http/Controllers/DefaultController.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -35,7 +35,7 @@ class CommandMakeControllerTest extends BaseTestCase
     {
         $this->artisan('make:module:controller', ['slug' => 'controller', 'name' => 'DefaultResourceController', '--resource' => 'resource']);
 
-        $file = $this->finder->get(module_path('controller').'/Http/Controllers/DefaultResourceController.php');
+        $file = $this->finder->get(module_path('controller') . '/Http/Controllers/DefaultResourceController.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -47,7 +47,7 @@ class CommandMakeControllerTest extends BaseTestCase
 
         $this->artisan('make:module:controller', ['slug' => 'controller', 'name' => 'CustomController']);
 
-        $file = $this->finder->get(module_path('controller').'/Http/Controllers/CustomController.php');
+        $file = $this->finder->get(module_path('controller') . '/Http/Controllers/CustomController.php');
 
         $this->assertMatchesSnapshot($file);
     }

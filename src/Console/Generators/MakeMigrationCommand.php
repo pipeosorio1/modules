@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

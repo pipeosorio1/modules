@@ -1,6 +1,6 @@
 <?php
 
-namespace Caffeinated\Modules\Repositories;
+namespace Pipeosorio1\Modules\Repositories;
 
 use Illuminate\Support\Str;
 
@@ -199,7 +199,7 @@ class LocalRepository extends Repository
      */
     public function enable($slug)
     {
-        return $this->set($slug.'::enabled', true);
+        return $this->set($slug . '::enabled', true);
     }
 
     /**
@@ -211,9 +211,9 @@ class LocalRepository extends Repository
      */
     public function disable($slug)
     {
-        return $this->set($slug.'::enabled', false);
+        return $this->set($slug . '::enabled', false);
     }
-    
+
     /**
      * Get all modules by specified location
      * 
@@ -223,7 +223,7 @@ class LocalRepository extends Repository
      */
     public function byLocation($location)
     {
-        $manifest = $this->getCachePath($location); 
+        $manifest = $this->getCachePath($location);
 
         return collect(json_decode($this->files->get($manifest), true));
     }

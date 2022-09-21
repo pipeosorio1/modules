@@ -1,9 +1,9 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
 use Symfony\Component\Console\Input\InputOption;
-use Caffeinated\Modules\Console\GeneratorCommand;
+use Pipeosorio1\Modules\Console\GeneratorCommand;
 
 class MakeControllerCommand extends GeneratorCommand
 {
@@ -51,7 +51,7 @@ class MakeControllerCommand extends GeneratorCommand
      *
      * @param string $rootNamespace
      * @return string
-     * @throws \Caffeinated\Modules\Exceptions\ModuleNotFoundException
+     * @throws \Pipeosorio1\Modules\Exceptions\ModuleNotFoundException
      */
     protected function getDefaultNamespace($rootNamespace)
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Caffeinated\Modules\Tests\Commands\Generators;
+namespace Pipeosorio1\Modules\Tests\Commands\Generators;
 
-use Caffeinated\Modules\Tests\BaseTestCase;
+use Pipeosorio1\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
 class CommandMakePolicyTest extends BaseTestCase
@@ -25,7 +25,7 @@ class CommandMakePolicyTest extends BaseTestCase
     {
         $this->artisan('make:module:policy', ['slug' => 'policy', 'name' => 'DefaultPolicy']);
 
-        $file = $this->finder->get(module_path('policy').'/Policies/DefaultPolicy.php');
+        $file = $this->finder->get(module_path('policy') . '/Policies/DefaultPolicy.php');
 
         $this->assertMatchesSnapshot($file);
     }
@@ -37,7 +37,7 @@ class CommandMakePolicyTest extends BaseTestCase
 
         $this->artisan('make:module:policy', ['slug' => 'policy', 'name' => 'CustomPolicy']);
 
-        $file = $this->finder->get(module_path('policy').'/Policies/CustomPolicy.php');
+        $file = $this->finder->get(module_path('policy') . '/Policies/CustomPolicy.php');
 
         $this->assertMatchesSnapshot($file);
     }

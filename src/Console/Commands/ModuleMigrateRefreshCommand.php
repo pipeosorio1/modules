@@ -1,10 +1,10 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Commands;
+namespace Pipeosorio1\Modules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
-use Caffeinated\Modules\Repositories\Repository;
+use Pipeosorio1\Modules\Repositories\Repository;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -93,8 +93,7 @@ class ModuleMigrateRefreshCommand extends Command
             event($slug . '.module.refreshed', [$module, $this->option()]);
 
             $this->info('Module has been refreshed.');
-        }
-        else {
+        } else {
             $this->info('All modules have been refreshed.');
         }
     }

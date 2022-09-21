@@ -1,9 +1,9 @@
 <?php
 
-namespace Caffeinated\Modules\Console\Generators;
+namespace Pipeosorio1\Modules\Console\Generators;
 
 
-use Caffeinated\Modules\Console\GeneratorCommand;
+use Pipeosorio1\Modules\Console\GeneratorCommand;
 
 class MakeJobCommand extends GeneratorCommand
 {
