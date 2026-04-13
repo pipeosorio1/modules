@@ -11,11 +11,6 @@ use Pipeosorio1\Modules\Providers\GeneratorServiceProvider;
 class ModulesServiceProvider extends ServiceProvider
 {
     /**
-     * @var bool Indicates if loading of the provider is deferred.
-     */
-    protected $defer = false;
-
-    /**
      * Bootstrap the provided services.
      */
     public function boot()
@@ -69,7 +64,7 @@ class ModulesServiceProvider extends ServiceProvider
             foreach ($repository->all() as $module) {
                 $serviceProvider = module_class($module['slug'], 'Providers\\ModuleServiceProvider', $repository->location);
 
-                if (class_exists($serviceProvider)) {
+                if (class_exists($serviceProvider) && method_exists($serviceProvider, 'compiles')) {
                     $files = array_merge($files, forward_static_call([$serviceProvider, 'compiles']));
                 }
             }

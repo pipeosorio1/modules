@@ -14,8 +14,10 @@ You will find user friendly and updated documentation on the [Caffeinated websit
 Simply install the package through Composer. From here the package will automatically register its service provider and `Module` facade.
 
 ```
-composer require caffeinated/modules
+composer require pipeosorio1/modules
 ```
+
+Current support targets PHP 8.3+ and Laravel 11+.
 
 ### Config
 To publish the config file, run the following:

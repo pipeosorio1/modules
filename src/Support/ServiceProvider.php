@@ -5,7 +5,6 @@ namespace Pipeosorio1\Modules\Support;
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class ServiceProvider extends IlluminateServiceProvider
 {
@@ -66,7 +65,15 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     protected function loadFactoriesFrom($path)
     {
-        app(Factory::class)->load($path);
+        if (!is_dir($path)) {
+            return;
+        }
+
+        $legacyFactory = 'Illuminate\\Database\\Eloquent\\Factory';
+
+        if (class_exists($legacyFactory) && $this->app->bound($legacyFactory)) {
+            $this->app->make($legacyFactory)->load($path);
+        }
     }
 
     /**

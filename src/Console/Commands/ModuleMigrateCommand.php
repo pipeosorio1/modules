@@ -77,12 +77,12 @@ class ModuleMigrateCommand extends Command
             $module = $repository->where('slug', $this->argument('slug'));
 
             if ($repository->isEnabled($module['slug'])) {
-                $this->executeMigrations($module['slug'], $repository->location);
+                return $this->executeMigrations($module['slug'], $repository->location);
             } elseif ($this->option('force')) {
-                $this->executeMigrations($module['slug'], $repository->location);
+                return $this->executeMigrations($module['slug'], $repository->location);
             }
 
-            $this->error('Nothing to migrate.');
+            return $this->error('Nothing to migrate.');
         } else {
             $modules = $this->option('force')
                 ? $repository->all()
@@ -118,7 +118,11 @@ class ModuleMigrateCommand extends Command
             // seed task to re-populate the database, which is convenient when adding
             // a migration and a seed at the same time, as it is only this command.
             if ($this->option('seed')) {
-                $this->call('module:seed', ['module' => $slug, '--force' => true]);
+                $this->call('module:seed', [
+                    'slug' => $slug,
+                    '--force' => true,
+                    '--location' => $location,
+                ]);
             }
         } else {
             return $this->error('Module does not exist.');
